@@ -1,7 +1,2 @@
-*.c.swp
-a.out
-error.log
-test.sh
-test.c
-re
-unsolved
+# Folders
+.vscode
