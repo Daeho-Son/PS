@@ -1,15 +1,19 @@
 CC			= gcc
+CFLAGS		= -Wall -Wextra -Werror
 
-NAME		= test
-SRCS		= 02920.c
+NAME		= boj
+SRCS		= 01259.c
 OBJS		= $(SRCS:.c=.o)
 
 %.o		: %.c
-	$(CC) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 all 	: $(NAME)
 
 $(NAME)	: $(OBJS)
+	$(CC) $(OBJS) -o $(NAME)
+
+test	: $(OBJS)
 	$(CC) $(OBJS) -o $(NAME)
 
 clean 	:
