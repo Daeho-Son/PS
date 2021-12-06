@@ -2,7 +2,7 @@ CC			= gcc
 CFLAGS		= -Wall -Wextra -Werror
 
 NAME		= boj
-SRCS		= 01259.c
+SRCS		= 11050.c
 OBJS		= $(SRCS:.c=.o)
 
 %.o		: %.c
