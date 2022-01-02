@@ -2,7 +2,7 @@ CC			= gcc
 CFLAGS		= -Wall -Wextra -Werror -g -fsanitize=address
 
 NAME		= boj
-NUMBER		= 02751
+NUMBER		= 07568
 SRCS		= $(NUMBER).c
 OBJS		= $(SRCS:.c=.o)
 
