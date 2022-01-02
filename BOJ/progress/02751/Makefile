@@ -1,8 +1,9 @@
 CC			= gcc
-CFLAGS		= -Wall -Wextra -Werror
+CFLAGS		= -Wall -Wextra -Werror -g -fsanitize=address
 
 NAME		= boj
-SRCS		= 11050.c
+NUMBER		= 02751
+SRCS		= $(NUMBER).c
 OBJS		= $(SRCS:.c=.o)
 
 %.o		: %.c
@@ -11,10 +12,11 @@ OBJS		= $(SRCS:.c=.o)
 all 	: $(NAME)
 
 $(NAME)	: $(OBJS)
-	$(CC) $(OBJS) -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJS) -lm -o $(NAME)
 
 test	: $(OBJS)
-	$(CC) $(OBJS) -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJS) -lm -o $(NAME)
+	./make_test.sh
 
 clean 	:
 	rm -f $(OBJS)
