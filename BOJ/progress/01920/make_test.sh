@@ -4,10 +4,9 @@
 # make_test.sh
 ##
 
-clear
 TEST_DIR="./testfiles"
+clear
 LS=`ls $TEST_DIR`
-
 for FILE_NAME in $LS
 do
 	TEST_FILE="$TEST_DIR/$FILE_NAME"
