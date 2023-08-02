@@ -1,24 +1,22 @@
+def is_prime(n):
+    if n == 2 or n == 3:
+        return True
+    if n % 2 == 0 or n < 2:
+        return False
+    for i in range(3, int(n ** 0.5)+1, 2):
+        if n % i == 0:
+            return False
+    return True
+
+
 def solution(n, k):
+    answer = 0
     k_base = ''
     while n > 0:
-        _div, _mod = divmod(n, k)
+        n, _mod = divmod(n, k)
         k_base += str(_mod)
-        n = _div
-
-    k_base = list(map(lambda x: int(x) if x else 0, k_base[::-1].split('0')))
-    print(k_base)
-    max_prime = max(k_base)
-    primes = [True] * (max_prime + 1)
-    for i in range(0, max_prime + 1):
-        if i == 0 or i == 1:
-            primes[i] = False
-        if not primes[i]:
-            continue
-        for j in range(i * 2, max_prime + 1, i):
-            primes[j] = False
-
-    answer = 0
-    for _n in k_base:
-        if primes[_n]:
+    nums = list(map(lambda x: int(x) if x != '' else 0, k_base[::-1].split('0')))
+    for num in nums:
+        if result := is_prime(num):
             answer += 1
     return answer
