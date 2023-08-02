@@ -1,8 +1,10 @@
 def run_test(test_case, solution):
-    for tc in test_case:
+    for i, tc in enumerate(test_case):
         _input = tc[:-1]
         _result = tc[-1]
-        print('#', *_input, _result)
+        print(f'### Test Case {i+1} ###')
+        print("Input:", *_input)
+        print("Result:", _result)
         if (answer := solution(*_input)) == _result:
             print(answer, "OK")
         else:
