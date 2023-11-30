@@ -1,15 +1,8 @@
 # 풀이 2
-def get_bit(x):
-    if x % 2 == 0:
-        return x + 1
-    return (x + 1) | ((x ^ x + 1) >> 2)
-
-
 def solution(numbers):
     answer = []
     for number in numbers:
-        answer.append(get_bit(number))
-        print()
+        answer.append((number + 1) | ((number ^ number + 1) >> 2))
     return answer
 
 # 풀이 1
