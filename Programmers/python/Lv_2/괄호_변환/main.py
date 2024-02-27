@@ -1,5 +1,5 @@
 from run_test import run_test
-from solution import solution
+from solution import solution_2
 
 
 def main():
@@ -7,8 +7,9 @@ def main():
         ["(()())()", "(()())()"],
         [")(", "()"],
         ["()))((()", "()(())()"],
+        ["()", "()"]
     ]
-    run_test(test_case, solution)
+    run_test(test_case, solution_2)
 
 
 if __name__ == '__main__':
