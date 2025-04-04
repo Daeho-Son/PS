@@ -9,18 +9,23 @@ public class Main {
         int n = Integer.parseInt(st.nextToken());
         int k = Integer.parseInt(st.nextToken());
 
-        int[] arr = new int[n];
+        int[] prefixSum = new int[n];
         st = new StringTokenizer(br.readLine());
         for (int i = 0; i < n; i++) {
-            arr[i] = Integer.parseInt(st.nextToken());
+            int inputNumber = Integer.parseInt(st.nextToken());
+            if (i == 0) {
+                prefixSum[i] = inputNumber;
+            } else {
+                prefixSum[i] = prefixSum[i - 1] + inputNumber;
+            }
         }
         int answer = Integer.MIN_VALUE;
-        for (int i = 0; i < n - k + 1; i++) {
-            int sum = 0;
-            for (int j = i; j < i + k; j++) {
-                sum += arr[j];
+        for (int i = k - 1; i < n; i++) {
+            if (i - k < 0) {
+                answer = Math.max(answer, prefixSum[i]);
+            } else {
+                answer = Math.max(answer, prefixSum[i] - prefixSum[i - k]);
             }
-            answer = Math.max(answer, sum);
         }
         System.out.println(answer);
     }
